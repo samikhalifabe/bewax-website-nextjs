@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import { FaHome, FaTools, FaCalculator } from 'react-icons/fa';
 import { MdContactMail, MdVideocam } from 'react-icons/md';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -25,37 +26,49 @@ export default function Home() {
       <section className="w-full py-16 bg-white">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           {/* Icon Box 1 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-bewax-blue flex items-center justify-center text-white text-2xl">
-              <FaHome />
-            </div>
-            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Remise à neuf et entretien</h3>
-            <p className="mt-2 text-bewax-gray">
-              Découvrez comment bien démarrer avec votre nouvelle terrasse en bois et comment redonner facilement éclat et jeunesse à une terrasse toute grisonnante…
-            </p>
-          </div>
+          <Card className="flex flex-col items-center text-center">
+            <CardHeader className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-bewax-blue flex items-center justify-center text-white text-2xl">
+                <FaHome />
+              </div>
+              <CardTitle className="mt-4 text-xl font-semibold text-bewax-dark">Remise à neuf et entretien</CardTitle>
+            </CardHeader>
+            <CardContent className="mt-2 text-bewax-gray">
+              <p>
+                Découvrez comment bien démarrer avec votre nouvelle terrasse en bois et comment redonner facilement éclat et jeunesse à une terrasse toute grisonnante…
+              </p>
+            </CardContent>
+          </Card>
 
           {/* Icon Box 2 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-bewax-green flex items-center justify-center text-white text-2xl">
-              <FaTools />
-            </div>
-            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Professionnels</h3>
-            <p className="mt-2 text-bewax-gray">
-              Chez Wax, nous prenons soin de votre image de marque ! Une terrasse bien entretenue est la meilleure garantie d’une belle vie pour vos réalisations …et pour votre publicité&nbsp;!!…
-            </p>
-          </div>
+          <Card className="flex flex-col items-center text-center">
+            <CardHeader className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-bewax-green flex items-center justify-center text-white text-2xl">
+                <FaTools />
+              </div>
+              <CardTitle className="mt-4 text-xl font-semibold text-bewax-dark">Professionnels</CardTitle>
+            </CardHeader>
+            <CardContent className="mt-2 text-bewax-gray">
+              <p>
+                Chez Wax, nous prenons soin de votre image de marque ! Une terrasse bien entretenue est la meilleure garantie d’une belle vie pour vos réalisations …et pour votre publicité&nbsp;!!…
+              </p>
+            </CardContent>
+          </Card>
 
           {/* Icon Box 3 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center text-white text-2xl"> {/* Keep yellow for now */}
-              <FaCalculator />
-            </div>
-            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Formules et tarifs</h3>
-            <p className="mt-2 text-bewax-gray">
-              Pour vous permettre de profiter pleinement de votre terrasse sans tracas, Wax a développé des solutions légères et performantes qui vont vous simplifier la vie…
-            </p>
-          </div>
+          <Card className="flex flex-col items-center text-center">
+            <CardHeader className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center text-white text-2xl"> {/* Keep yellow for now */}
+                <FaCalculator />
+              </div>
+              <CardTitle className="mt-4 text-xl font-semibold text-bewax-dark">Formules et tarifs</CardTitle>
+            </CardHeader>
+            <CardContent className="mt-2 text-bewax-gray">
+              <p>
+                Pour vous permettre de profiter pleinement de votre terrasse sans tracas, Wax a développé des solutions légères et performantes qui vont vous simplifier la vie…
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

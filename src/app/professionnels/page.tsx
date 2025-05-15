@@ -2,12 +2,16 @@
 
 import Header from "@/components/Header";
 import Image from "next/image";
-import { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Professionnels() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const images = [
     "/pro8.jpg",
     "/pro2.jpg",
@@ -17,16 +21,6 @@ export default function Professionnels() {
     "/pro5.jpg",
     "/pro6.jpg",
   ];
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -49,34 +43,35 @@ export default function Professionnels() {
       <section className="w-full py-16 bg-gray-100"> {/* Keep gray-100 for background */}
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4">
           {/* Image Carousel */}
-          <div className="w-full relative">
-            <Image
-              src={images[currentImageIndex]}
-              alt={`Professional terrace cleaning image ${currentImageIndex + 1}`}
-              title={`Professional terrace cleaning image ${currentImageIndex + 1}`}
-              width={800}
-              height={532}
-              layout="responsive"
-            />
-             {/* Navigation Buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
-            >
-              <FaChevronLeft />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
-            >
-              <FaChevronRight />
-            </button>
-          </div>
+          <Card className="w-full">
+            <CardContent className="p-0"> {/* Remove default padding */}
+              <Carousel>
+                <CarouselContent>
+                  {images.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <Image
+                        src={image}
+                        alt={`Professional terrace cleaning image ${index + 1}`}
+                        title={`Professional terrace cleaning image ${index + 1}`}
+                        width={800}
+                        height={532}
+                        layout="responsive"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </CardContent>
+          </Card>
 
           {/* Text Content */}
-          <div>
-            <h2 className="text-3xl font-bold text-bewax-green">Professionnels</h2>
-            <div className="mt-4 text-bewax-gray">
+          <Card className="w-full">
+            <CardHeader> {/* Added CardHeader for the title */}
+              <h2 className="text-3xl font-bold text-bewax-green">Professionnels</h2>
+            </CardHeader>
+            <CardContent className="mt-4 text-bewax-gray">
               <p>Une terrasse bien entretenue, c’est la garantie de satisfaire vos clients à 110% …et de faire parler de vous…</p>
               <p className="mt-4">Le bouche à oreille est la meilleure des publicités et c’est entièrement gratuit !!!</p>
               <p className="mt-4">Valorisez votre travail et votre savoir faire en proposant à vos ancien clients la remise à neuf complète de leur terrasse pour qu’ils puissent à nouveau apprécier pleinement votre construction.</p>
@@ -84,8 +79,8 @@ export default function Professionnels() {
               <p className="mt-4">Prenez maintenant contact avec Bernard Neyns qui vous aidera à trouver les formules les plus simples et légères pour satisfaire vos clients à 110% et développer votre activité !!</p>
               <p className="mt-4">Une nouvelle terrasse est un investissement durable. Pour bien débuter en toute sérénité, vous pouvez proposer à vos clients un suivis de leur nouvelle terrasse, de 1mois à 5 ans.</p>
               <p className="mt-4">Nous réaliserons un premier nettoyage et un entretient peu après la fin de votre chantier. Au début du printemps un simple passage d’entretien pourra permettre de garder le suivis de votre clientèle et leur offrir la joie de profiter pleinement d’une terrasse impeccable !</p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

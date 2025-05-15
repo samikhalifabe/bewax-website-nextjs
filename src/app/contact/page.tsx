@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // Import other components as needed
 
 export default function Contact() {
@@ -24,9 +25,11 @@ export default function Contact() {
       <section className="w-full py-16 bg-white">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
           {/* Contact Information */}
-          <div className="bg-bewax-dark text-white p-8 rounded-lg">
-            <h2 className="text-3xl font-bold text-white mb-4">Wax</h2>
-            <div className="space-y-4">
+          <Card className="bg-bewax-dark text-white p-8 rounded-lg"> {/* Apply background and text color to Card */}
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold text-white mb-4">Wax</CardTitle> {/* Keep text-white for title */}
+            </CardHeader>
+            <CardContent className="space-y-4"> {/* Keep space-y-4 for content spacing */}
               <div>
                 <p>Rue du Manypré , 109A</p>
                 <p>1325 Corroy-Le-Grand</p>
@@ -35,31 +38,35 @@ export default function Contact() {
               <div className="flex items-center">
                 {/* Icon placeholder */}
                 <span className="text-xl mr-2">📧</span>
-                <p><a href="mailto:bernardneyns@gmail.com" className="hover:underline">bernardneyns@gmail.com</a></p>
+                <p><a href="mailto:bernardneyns@gmail.com" className="hover:underline text-white">bernardneyns@gmail.com</a></p> {/* Ensure link text is white */}
               </div>
               <div className="flex items-center">
                  {/* Icon placeholder */}
                 <span className="text-xl mr-2">📞</span>
-                <p><a href="tel:+32472321597" className="hover:underline">+32 (0)472.32.15.97</a></p>
+                <p><a href="tel:+32472321597" className="hover:underline text-white">+32 (0)472.32.15.97</a></p> {/* Ensure link text is white */}
               </div>
                <div className="flex items-center">
                  {/* Icon placeholder */}
                 <span className="text-xl mr-2">🌐</span>
-                <p><a href="http://www.bewax.be" target="_blank" rel="noopener noreferrer" className="hover:underline">www.bewax.be</a></p>
+                <p><a href="http://www.bewax.be" target="_blank" rel="noopener noreferrer" className="hover:underline text-white">www.bewax.be</a></p> {/* Ensure link text is white */}
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
           {/* Contact Form and Additional Info */}
           <div>
             <h2 className="text-2xl font-semibold text-bewax-dark mb-4">Envoyez-nous des photos et les dimensions de votre terrasse et recevez un devis dans les 24 heures.</h2>
             <h2 className="text-xl font-semibold text-bewax-dark mb-4">Bernard Neyns 0472 32 15 97</h2>
             {/* Contact Form Placeholder */}
-            <div className="bg-gray-100 p-8 rounded-lg">
-              <h3 className="text-xl font-semibold text-bewax-dark mb-4">Contact Form</h3>
-              <p className="text-bewax-gray">Placeholder for the contact form. Form functionality requires backend implementation.</p>
-              {/* You would integrate a contact form library or build your own here */}
-            </div>
+            <Card className="bg-gray-100 p-8 rounded-lg"> {/* Apply background and padding to Card */}
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-bewax-dark mb-4">Contact Form</CardTitle> {/* Keep text-bewax-dark for title */}
+              </CardHeader>
+              <CardContent className="text-bewax-gray"> {/* Keep text-bewax-gray for content */}
+                <p>Placeholder for the contact form. Form functionality requires backend implementation.</p>
+                {/* You would integrate a contact form library or build your own here */}
+              </CardContent>
+            </Card>
 
              {/* Image */}
             <div className="w-full mt-8">

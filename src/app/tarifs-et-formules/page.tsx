@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 // Import other components as needed
 
 export default function TarifsEtFormules() {
@@ -22,62 +24,38 @@ export default function TarifsEtFormules() {
 
       {/* Pricing Table Section */}
       <section className="w-full py-16 bg-white">
-        <div className="container mx-auto px-4">
-          {/* Pricing Table */}
-          <div className="pricetable" id="pt_xz6anq3qzzvap948s4qf">
-            <div className="pricetable-inner">
-              {/* Pricing Column */}
-              <div className="pricetable-column pricetable-standard pricetable-first pricetable-last pt_col_nb_0 w-full md:w-1/2 mx-auto border border-gray-200 rounded-lg overflow-hidden">
-                <div className="pricetable-column-inner p-8 text-center">
-                  <div className="pricetable-header">
-                    <h3 className="pricetable-name text-2xl font-semibold text-bewax-dark">8€ du m²</h3>
-                    <div className="pt_price_ctn mt-2">
-                      <h4 className="pricetable-price text-4xl font-bold text-bewax-green">
-                        <span className="pt_price">WASH</span>
-                        <span className="price_details"></span>
-                      </h4>
-                    </div>
-                  </div>
-
-                  <div className="features mt-8 text-bewax-gray">
-                    <div className="pricetable-feature pricetable-first">
-                      ✔ Prise en charge complète de la rénovation de votre terrasse
-                    </div>
-                    <div className="pricetable-feature ">
-                      ✔ Nettoyage en profondeur et en douceur
-                    </div>
-                    <div className="pricetable-feature ">
-                      ✔ Forfait 320€ terrasse de moins de 25m²
-                    </div>
-                    <div className="pricetable-feature ">
-                      ✔ 8€ par m² supplémentaire
-                    </div>
-                    <div className="pricetable-feature ">
-                      ________________
-                    </div>
-                    <div className="pricetable-feature ">
-                      EN OPTION
-                    </div>
-                    <div className="pricetable-feature ">
-                      Petites réparations
-                    </div>
-                    <div className="pricetable-feature ">
-                      ✔ Fourniture d'une huile adaptée
-                    </div>
-                    <div className="pricetable-feature ">
-                      ✔ Application de l'huile
-                    </div>
-                  </div>
-
-                  <div className="pricetable-button-container mt-8">
-                    <a href="tel:0472321597" className="inline-block bg-bewax-green text-white text-lg font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition duration-300">
-                      0472 32 15 97
-                    </a>
-                  </div>
-                </div>
+        <div className="container mx-auto px-4 flex justify-center"> {/* Center the card */}
+          {/* Pricing Column */}
+          <Card className="w-full md:w-1/2 text-center">
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-bewax-dark">8€ du m²</CardTitle>
+              <div className="mt-2">
+                <h4 className="text-4xl font-bold text-bewax-green">
+                  WASH
+                </h4>
               </div>
-            </div>
-          </div>
+            </CardHeader>
+
+            <CardContent className="mt-8 text-bewax-gray">
+              <div className="space-y-2"> {/* Add spacing between features */}
+                <p>✔ Prise en charge complète de la rénovation de votre terrasse</p>
+                <p>✔ Nettoyage en profondeur et en douceur</p>
+                <p>✔ Forfait 320€ terrasse de moins de 25m²</p>
+                <p>✔ 8€ par m² supplémentaire</p>
+                <p>________________</p>
+                <p className="font-semibold">EN OPTION</p>
+                <p>Petites réparations</p>
+                <p>✔ Fourniture d'une huile adaptée</p>
+                <p>✔ Application de l'huile</p>
+              </div>
+            </CardContent>
+
+            <CardFooter className="flex justify-center mt-8"> {/* Center the button */}
+              <Button asChild>
+                <a href="tel:0472321597">0472 32 15 97</a>
+              </Button>
+            </CardFooter>
+          </Card>
         </div>
       </section>
 

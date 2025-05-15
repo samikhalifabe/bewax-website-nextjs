@@ -2,16 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa'; // Only need FaBars for the trigger icon
+
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <header className="header_shadow nav_type_3 sticky_header header_to_shrink clearfix bg-white w-full border-b border-gray-200">
       <div className="wrapper container mx-auto flex justify-between items-center py-4 px-4">
@@ -28,57 +34,68 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Navigation */}
-        <nav className="hidden md:block">
-          <ul id="menu-menuok" className="menu sf-js-enabled sf-shadow flex space-x-6">
-            <li className="menu-item current-menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/">Accueil</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/terrassesbois">Remise à neuf et entretien</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/professionnels">Professionnels</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/tarifs-et-formules">Tarifs et formules</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+        {/* Desktop Navigation */}
+        <NavigationMenu className="hidden md:block">
+          <NavigationMenuList className="flex space-x-6">
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/" className="text-bewax-dark hover:text-bewax-green">
+                Accueil
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/terrassesbois" className="text-bewax-dark hover:text-bewax-green">
+                Remise à neuf et entretien
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/professionnels" className="text-bewax-dark hover:text-bewax-green">
+                Professionnels
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/tarifs-et-formules" className="text-bewax-dark hover:text-bewax-green">
+                Tarifs et formules
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/contact" className="text-bewax-dark hover:text-bewax-green">
+                Contact
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu */}
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-bewax-dark text-2xl">
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <FaBars className="h-6 w-6" />
+                <span className="sr-only">Toggle mobile menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="flex flex-col space-y-4 py-6">
+                <Link href="/" className="text-bewax-dark hover:text-bewax-green">
+                  Accueil
+                </Link>
+                <Link href="/terrassesbois" className="text-bewax-dark hover:text-bewax-green">
+                  Remise à neuf et entretien
+                </Link>
+                <Link href="/professionnels" className="text-bewax-dark hover:text-bewax-green">
+                  Professionnels
+                </Link>
+                <Link href="/tarifs-et-formules" className="text-bewax-dark hover:text-bewax-green">
+                  Tarifs et formules
+                </Link>
+                <Link href="/contact" className="text-bewax-dark hover:text-bewax-green">
+                  Contact
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white w-full border-b border-gray-200">
-          <ul id="tf_mb_menu" className="menu flex flex-col items-center py-4 space-y-2">
-            <li className="menu-item current-menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/" onClick={toggleMobileMenu}>Accueil</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/terrassesbois" onClick={toggleMobileMenu}>Remise à neuf et entretien</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/professionnels" onClick={toggleMobileMenu}>Professionnels</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/tarifs-et-formules" onClick={toggleMobileMenu}>Tarifs et formules</Link>
-            </li>
-            <li className="menu-item text-bewax-dark hover:text-bewax-green">
-              <Link href="/contact" onClick={toggleMobileMenu}>Contact</Link>
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 };

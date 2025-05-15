@@ -2,4 +2,8 @@
 
 This file lists the ShadCN components used in the Bewax website project.
 
-- [ ] Add components as they are implemented.
+- [x] Card
+- [x] Button
+- [x] Navigation Menu
+- [x] Sheet
+- [x] Carousel
