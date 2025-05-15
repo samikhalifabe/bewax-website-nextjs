@@ -1,103 +1,173 @@
 import Image from "next/image";
+import Header from "@/components/Header";
+import { FaHome, FaTools, FaCalculator } from 'react-icons/fa';
+import { MdContactMail, MdVideocam } from 'react-icons/md';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section (Replacing Revolution Slider) */}
+      <section className="w-full h-[560px] flex items-center justify-center relative overflow-hidden">
+        <Image
+          src="/bnadeauhome.jpg" // Assuming the hero image is in the public directory
+          alt="Remise à neuf de terrasses en bois"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-center text-white">Remise à neuf de terrasses en bois</h1>
+      </section>
+
+      {/* Icon boxes section */}
+      <section className="w-full py-16 bg-white">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+          {/* Icon Box 1 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-bewax-blue flex items-center justify-center text-white text-2xl">
+              <FaHome />
+            </div>
+            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Remise à neuf et entretien</h3>
+            <p className="mt-2 text-bewax-gray">
+              Découvrez comment bien démarrer avec votre nouvelle terrasse en bois et comment redonner facilement éclat et jeunesse à une terrasse toute grisonnante…
+            </p>
+          </div>
+
+          {/* Icon Box 2 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-bewax-green flex items-center justify-center text-white text-2xl">
+              <FaTools />
+            </div>
+            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Professionnels</h3>
+            <p className="mt-2 text-bewax-gray">
+              Chez Wax, nous prenons soin de votre image de marque ! Une terrasse bien entretenue est la meilleure garantie d’une belle vie pour vos réalisations …et pour votre publicité&nbsp;!!…
+            </p>
+          </div>
+
+          {/* Icon Box 3 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center text-white text-2xl"> {/* Keep yellow for now */}
+              <FaCalculator />
+            </div>
+            <h3 className="mt-4 text-xl font-semibold text-bewax-dark">Formules et tarifs</h3>
+            <p className="mt-2 text-bewax-gray">
+              Pour vous permettre de profiter pleinement de votre terrasse sans tracas, Wax a développé des solutions légères et performantes qui vont vous simplifier la vie…
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* About WAX section */}
+      <section className="w-full py-16 bg-gray-100"> {/* Keep gray-100 for background */}
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4">
+          {/* Video */}
+          <div className="w-full">
+            <iframe
+              src="https://player.vimeo.com/video/196717429"
+              width="100%"
+              height="360"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          {/* Text */}
+          <div>
+            <h2 className="text-3xl font-bold text-bewax-green">Quelques mots sur WAX</h2>
+            <div className="mt-4 text-bewax-gray">
+              <div className="flex items-start mt-4">
+                <div className="w-10 h-10 rounded-full bg-bewax-green flex items-center justify-center text-white text-xl mr-4">
+                  <MdContactMail />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-bewax-dark">Le concept</h3>
+                  <p className="mt-2 text-bewax-gray">
+                    Chez Wax, nous adorons la terrasse en bois et nous sommes soucieux qu’elle soit parfaitement mise en valeur durant toute la durée de sa vie.
+                  </p>
+                  <p className="mt-2 text-bewax-gray">
+                    Fort de son expérience en aménagement, Wax a développé un concept innovant très simple et très efficace pour la remise à neuf et la protection des terrasses en bois.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start mt-4">
+                <div className="w-10 h-10 rounded-full bg-bewax-green flex items-center justify-center text-white text-xl mr-4">
+                  <MdVideocam />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-bewax-dark">Produits durables et équipement spécialisé</h3>
+                  <p className="mt-2 text-bewax-gray">
+                    Avec une large gamme de produits durable et un équipement spécialisé, nous pouvons vous offrir une remise à neuf stupéfiante de votre terrasse et une base solide pour la protection du bois.
+                  </p>
+                  <p className="mt-2 text-bewax-gray">
+                    Nettoyer et entretenir votre terrasse n’a jamais été aussi simple… car grâce à notre expertise vous pouvez avoir la garantie de profiter sans soucis de votre terrasse au fil des années.
+                  </p>
+                </div>
+              &</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New perspectives section */}
+      <section className="w-full py-16"> {/* Keep white background */}
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4">
+           {/* Text */}
+           <div>
+            <h2 className="text-3xl font-bold text-bewax-green">Nouvelles perspectives</h2>
+            <div className="mt-4 text-bewax-gray">
+              <div className="flex items-start mt-4">
+                <div className="w-10 h-10 rounded-full bg-bewax-green flex items-center justify-center text-white text-xl mr-4">
+                  <MdContactMail />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-bewax-dark">About Us</h3>
+                  <p className="mt-2 text-bewax-gray">
+                    Bernard Neyns a fondé il y a 21 ans son premier bureau d’architecte paysagiste. Privilégiant les matériaux durables et écologiques, il se spécialise dans la conception et la fabrication de terrasses en bois, notamment en bois de Robinier.
+                  </p>
+                  <p className="mt-2 text-bewax-gray">
+                    C’est avec le suivis de ses réalisations qu’il se rend compte que le nettoyage et l’entretient régulier des terrasses est le meilleur moyen de valoriser durablement l’investissement de ses clients.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full mt-8">
+                <iframe
+                  src="https://player.vimeo.com/video/194850351"
+                  width="100%"
+                  height="224"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full">
+            <Image
+              src="/pro6.jpg" // Assuming the image is in the public directory
+              alt="Terrasse en bois"
+              title="Terrasse en bois"
+              width={800}
+              height={532}
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+
+      {/* Footer will go here */}
+      <footer className="w-full bg-bewax-dark text-bewax-light-gray py-8">
+        <div className="container mx-auto text-center">
+          <p>
+            Copyright 2017 <a href="#" target="_blank" className="text-bewax-green">Go2Web</a> | All Rights Reserved
+          </p>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
