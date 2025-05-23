@@ -52,7 +52,7 @@ export default function TarifsEtFormules() {
 
             <CardFooter className="flex justify-center mt-8"> {/* Center the button */}
               <Button asChild>
-                <a href="tel:0472321597">0472 32 15 97</a>
+                <a href="tel:0472321597"><span>0472 32 15 97</span></a>
               </Button>
             </CardFooter>
           </Card>
